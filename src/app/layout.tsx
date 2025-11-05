@@ -1,12 +1,20 @@
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import { Montserrat } from 'next/font/google';
+
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  variable: '--font-montserrat',
+  weight: ['400', '500', '600', '700'],
+})
 
 export const metadata = { title: "Sadaf Nemani" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="bg-neutral-55 text-neutral-10">
+      <body className={`${montserrat.variable} font-sans bg-neutral-55 text-neutral-10`}>
         <Navbar />
         <main>{children}</main>
       </body>

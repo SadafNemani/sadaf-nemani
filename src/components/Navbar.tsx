@@ -2,21 +2,37 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Navbar() {
     const [open, setOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
-        const onScroll = () => setScrolled(window.scrollY > 20);
-        onScroll();
-        window.addEventListener("scroll", onScroll);
-        return () => window.removeEventListener("scroll", onScroll);
+        gsap.to(".navbar-bg", {
+            backdropFilter: "blur(8px)",
+            backgroundColor: "rgba(0, 0, 0, 0.7)",
+            filter: "brightness(1.1)",
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: "body",
+                start: "top top",
+                end: "bottom top",
+                scrub: true,
+            },
+        });
     }, []);
 
     return (
-        <header
-        className={`fixed top-4 left-0 right-0 z-50 px-6 md:px-12 transition-all duration-300 ${
+        <motion.header
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className={`navbar-bg fixed top-4 left-0 right-0 z-50 px-6 md:px-12 transition-all duration-300 ${
         scrolled ? "backdrop-blur-lg bg-neutral-50/40 shadow-sm" : "bg-transparent"
         }`}
         aria-label="Primary navigation"
@@ -25,8 +41,8 @@ export default function Navbar() {
                 {/* Logo */}
                 <div className="flex items-center gap-3">
                     <Link href="/" className="inline-flex items-center">
-                        <span className="text-neutral-10 font-semibold text-lg tracking-tight">
-                            Sadaf<span className="text-accent">.</span>N
+                        <span className="text-neutral-10 font-semibold text-3xl tracking-tight">
+                            Sadaf<span className="text-primary">.</span>N
                         </span>
                     </Link>
                 </div>
@@ -39,16 +55,17 @@ export default function Navbar() {
                             href={item === "Home" ? "/" : `/#${item.toLocaleLowerCase()}`}
                             onClick={(e) => {
                                 e.preventDefault();
-                                const el = document.getElementById(targetId);
+                                const id = item.toLowerCase();
+                                const el = document.getElementById(id);
                                 if (el) {
                                     el.scrollIntoView({ behavior: "smooth", block: "start" });
                                 } 
                                 setOpen(false);
                             }}
-                            className="block text-neutral-10 text-lg font-medium cursor-pointer"
+                            className="group neon-hover relative block text-neutral-10 text-lg font-medium cursor-pointer"
                             >
-                                <span className="px-1 py-1">{item}</span>
-                                <span className="absolute left-0 right-0 -bottom-2 h-0.5 bg-accent opacity-0 transform scale-x-0 transition-all duration-300 origin-left group-hover:opacity-100 group-hover:scale-x-100"></span>
+                                <span className="relative px-1 py-1 transition-all duration-300 group-hover:text-primary group-hover:[text-shadow:0_0_8px_rgba(99,186,11,0.8)]">{item}</span>
+                                <span className="absolute left-0 right-0 -bottom-1 h-0.5 bg-primary opacity-0 scale-x-0 origin-left transition-all duration-300 group-hover:opacity-100 group-hover:scale-x-100 group-hover:shadow-[0_0_8px_rgba(99,186,11,0.8)]"></span>
                             </Link>
                         </li>
                     ))}
@@ -95,12 +112,12 @@ export default function Navbar() {
                     aria-hidden={!open}
                     >
                         <div
-                        className={`absolute top-0 left-0 right-0 p-6 backdrop-blur-lg bg-neutral-55/75 border-b border-accent/30`}
+                        className={`absolute top-0 left-0 right-0 p-6 backdrop-blur-lg bg-neutral-55/75 border-b border-primary/30`}
                         >
                             <div className="flex items-center justify-between">
                                 <Link href="/" onClick={() => setOpen(false)}>
-                                    <span className="text-neutral-10 font-semibold text-lg">
-                                        Sadaf<span className="text-accent">.</span>N
+                                    <span className="text-neutral-10 font-semibold text-3xl">
+                                        Sadaf<span className="text-primary">.</span>N
                                     </span>
                                 </Link>
                                 <button
@@ -116,21 +133,22 @@ export default function Navbar() {
 
                             <ul className="flex flex-col md:flex-row items-center gap-6 md:gap-8">
                                 {["Home", "Services", "Projects", "Testimonials", "Contact"].map((item) => (
-                                    <li key={item}>
+                                    <li key={item} className="group relative">
                                         <Link
                                         href={item === "Home" ? "/" : `/#${item.toLocaleLowerCase()}`}
                                         onClick={(e) => {
                                             e.preventDefault();
-                                            const el = document.getElementById(item.toLocaleLowerCase());
+                                            const id = item.toLowerCase();
+                                            const el = document.getElementById(id);
                                             if (el) {
                                                 el.scrollIntoView({ behavior: "smooth", block: "start" });
                                             } 
                                             setOpen(false);
                                         }}
-                                        className="block relative text-neutral-10 text-lg font-medium cursor-pointer transition-all duration-300 group-hover:text-accent py-2 px-3 text-center"
+                                        className="group neon-hover relative block relative text-neutral-10 text-lg font-medium cursor-pointer transition-all duration-300 group-hover:text-primary py-2 px-3 text-center"
                                         >
-                                            <span className="px-1 py-1">{item}</span>
-                                            <span className="absolute left-0 right-0 -bottom-1 h-0.5 bg-accent opacity-0 transform scale-x-0 transition-all duration-300 origin-left group-hover:opacity-100 group-hover:scale-x-100"></span>
+                                            <span className="relative px-1 py-1 transition-all duration-300 group-hover:text-primary group-hover:[text-shadow:0_0_8px_rgba(99,186,11,0.8)]">{item}</span>
+                                            <span className="absolute left-0 right-0 -bottom-1 h-0.5 bg-primary opacity-0 scale-x-0 origin-left transition-all duration-300 group-hover:opacity-100 group-hover:scale-x-100 group-hover:shadow-[0_0_8px_rgba(99,186,11,0.8)]"></span>
                                         </Link>
                                     </li>
                                 ))}
@@ -148,6 +166,6 @@ export default function Navbar() {
 
             {/* thin luminous bottom border (always visible) */}
             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px" style={{ boxShadow: `0 0 8px rgba(99,186,11,0.18)` }} />
-        </header>
+        </motion.header>
     )
 }
