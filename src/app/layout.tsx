@@ -1,3 +1,4 @@
+import Hero from "@/components/Hero";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Montserrat } from 'next/font/google';
@@ -16,7 +17,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={`${montserrat.variable} font-sans bg-neutral-55 text-neutral-10`}>
         <Navbar />
-        <main>{children}</main>
+        <main>
+          <Hero />
+        </main>
       </body>
     </html>
   );
