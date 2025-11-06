@@ -46,3 +46,45 @@ body {
   animation: neonPulse 1.5s ease-in-out infinite;
 }
 
+
+.parallax-text {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#particles-layer {
+  z-index: 5;
+}
+
+.particle {
+  will-change: transform, opacity;
+  pointer-events: none;
+  border-radius: 50%;
+  mix-blend-mode: screen;
+  box-shadow: 0 0 10px rgba(150, 255, 100, 0.6),
+              0 0 20px rgba(99, 186, 11, 0.4);
+  filter: brightness(1.4) saturate(1.5);
+}
+
+@keyframes sparkle {
+  0%, 100% { filter: drop-shadow(0 0 10px rgba(99,186,11,0.8)); }
+  50% { filter: drop-shadow(0 0 18px rgba(170,255,120,1)); }
+}
+
+.icon-glow {
+  animation: sparkle 3s ease-in-out infinite alternate;
+  position: absolute;
+  color: rgba(255, 255, 255, 0.6);
+  opacity: 0.6;
+  filter:
+    drop-shadow(0 0 6px rgba(99, 186, 11, 0.45))
+    drop-shadow(0 0 12px rgba(99, 186, 11, 0.25))
+    blur(0.3px);
+  backdrop-filter: blur(2px) saturate(120%);
+  -webkit-backdrop-filter: blur(2px) saturate(120%);
+  transform-style: preserve-3d;
+  transition: all 0.4s ease-out;
+}
+.icon-glow svg {
+  filter: drop-shadow(0 0 6px rgba(99, 186, 11, 0.9));
+}
