@@ -12,8 +12,6 @@ import {
 export default function Hero() {
   const textRef = useRef<HTMLHeadingElement | null>(null);
   const iconsLayerRef = useRef<HTMLDivElement | null>(null);
-  const parallaxState = useRef({ x: 0, y: 0 });
-
 
   const iconSets = {
     "I DESIGN": [PenTool, Palette, Brush, Pipette, PaintBucket, LayoutGrid],
@@ -116,18 +114,18 @@ export default function Hero() {
       });
 
       // Icons parallax (offset only — no overwrite)
-      const icons = iconsLayer.querySelectorAll(".floating-icon");
-      icons.forEach((icon, i) => {
-        const baseX = parseFloat(icon.getAttribute("data-base-x") || "0");
-        const baseY = parseFloat(icon.getAttribute("data-base-y") || "0");
-        gsap.to(icon, {
-          x: `+=${offsetX * (40 + i * 2)}`,
-          y: `+=${offsetY * (40 + i * 2)}`,
-          duration: 1.4,
-          ease: "power3.out",
-          overwrite: false,
-        });
-      });
+      // const icons = iconsLayer.querySelectorAll(".floating-icon");
+      // icons.forEach((icon, i) => {
+      //   const baseX = parseFloat(icon.getAttribute("data-base-x") || "0");
+      //   const baseY = parseFloat(icon.getAttribute("data-base-y") || "0");
+      //   gsap.to(icon, {
+      //     x: `+=${offsetX * (40 + i * 2)}`,
+      //     y: `+=${offsetY * (40 + i * 2)}`,
+      //     duration: 1.4,
+      //     ease: "power3.out",
+      //     overwrite: false,
+      //   });
+      // });
     };
 
     const reset = () => {
