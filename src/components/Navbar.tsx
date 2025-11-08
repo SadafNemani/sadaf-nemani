@@ -32,9 +32,7 @@ export default function Navbar() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`navbar-bg fixed top-4 left-0 right-0 z-50 px-6 md:px-12 transition-all duration-300 ${
-        scrolled ? "backdrop-blur-lg bg-neutral-50/40 shadow-sm" : "bg-transparent"
-        }`}
+        className={`navbar-bg fixed inset-x-0 mx-auto top-4 z-50 px-6 md:px-12 w-10/12 rounded-2xl transition-all duration-300 backdrop-blur-lg bg-neutral-50/40 shadow-sm`}
         aria-label="Primary navigation"
         >
             <nav className="max-w-6xl mx-auto flex items-center justify-between h-16">
