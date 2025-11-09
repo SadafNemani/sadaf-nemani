@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Montserrat } from 'next/font/google';
 import Services from "@/components/Services";
+import Projects from "@/components/Projects";
 
 
 const montserrat = Montserrat({
@@ -21,6 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main>
           <Hero />
           <Services />
+          <Projects />
         </main>
       </body>
     </html>
