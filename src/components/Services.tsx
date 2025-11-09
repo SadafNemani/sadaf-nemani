@@ -5,6 +5,25 @@ import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { PenTool, Code, Sparkles, Gauge } from "lucide-react";
+import {
+  FaFigma,
+  FaWordpress,
+  FaReact,
+  FaHtml5,
+  FaCss3Alt,
+  FaJs,
+  FaNodeJs,
+  FaPhp,
+  FaGitAlt,
+} from "react-icons/fa";
+import {
+  SiNextdotjs,
+  SiTypescript,
+  SiTailwindcss,
+  SiFramer,
+  SiMysql,
+} from "react-icons/si";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,21 +32,26 @@ const services = [
     title: "Design",
     icon: <PenTool className="w-10 h-10 text-primary" />,
     desc: "Crafting clean, user-centered interfaces that blend beauty with usability.",
+    tools: [FaFigma, FaWordpress],
   },
   {
     title: "Code",
     icon: <Code className="w-10 h-10 text-primary" />,
     desc: "Building fast, responsive, and scalable web experiences using modern frameworks.",
+    tools: [FaHtml5, FaCss3Alt, FaJs, SiTypescript, FaReact, SiNextdotjs, SiTailwindcss],
+
   },
   {
     title: "Animate",
     icon: <Sparkles className="w-10 h-10 text-primary" />,
     desc: "Bringing visuals to life with fluid, meaningful motion that tells a story.",
+    tools: [SiFramer, "GSAP"],
   },
   {
     title: "Optimize",
     icon: <Gauge className="w-10 h-10 text-primary" />,
     desc: "Improving performance, SEO, and accessibility for seamless digital journeys.",
+    tools: [FaGitAlt, FaNodeJs, FaPhp, SiMysql],
   },
 ];
 
@@ -95,6 +119,24 @@ export default function Services() {
               <p className="text-neutral-400 text-base leading-relaxed">
                 {service.desc}
               </p>
+
+              <div className="flex flex-wrap justify-center gap-3">
+                {service.tools.map((Tool, idx) =>
+                  typeof Tool === "string" ? (
+                    <span
+                      key={idx}
+                      className="mt-5 text-sm font-medium text-neutral-300 hover:text-primary transition-colors duration-300"
+                    >
+                      {Tool}
+                    </span>
+                  ) : (
+                    <Tool
+                      key={idx}
+                      className="mt-5 w-6 h-6 text-neutral-400 hover:text-primary transition-colors duration-300"
+                    />
+                  )
+                )}
+              </div>
 
               <div className="absolute inset-0 rounded-2xl border border-primary/0 group-hover:border-primary/30 group-hover:shadow-[0_0_25px_rgba(99,186,11,0.25)] transition-all duration-500" />
             </div>
