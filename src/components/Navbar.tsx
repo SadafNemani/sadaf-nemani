@@ -143,7 +143,7 @@ export default function Navbar() {
                                             } 
                                             setOpen(false);
                                         }}
-                                        className="group neon-hover relative block relative text-neutral-10 text-lg font-medium cursor-pointer transition-all duration-300 group-hover:text-primary py-2 px-3 text-center"
+                                        className="group neon-hover block relative text-neutral-10 text-lg font-medium cursor-pointer transition-all duration-300 group-hover:text-primary py-2 px-3 text-center"
                                         >
                                             <span className="relative px-1 py-1 transition-all duration-300 group-hover:text-primary group-hover:[text-shadow:0_0_8px_rgba(99,186,11,0.8)]">{item}</span>
                                             <span className="absolute left-0 right-0 -bottom-1 h-0.5 bg-primary opacity-0 scale-x-0 origin-left transition-all duration-300 group-hover:opacity-100 group-hover:scale-x-100 group-hover:shadow-[0_0_8px_rgba(99,186,11,0.8)]"></span>

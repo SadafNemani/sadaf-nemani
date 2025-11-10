@@ -6,6 +6,7 @@ import Services from "@/components/Services";
 import Projects from "@/components/Projects";
 import Testimonials from "@/components/Testimonials";
 import ContactCTA from "@/components/ContactCTA";
+import Footer from "@/components/Footer";
 
 
 const montserrat = Montserrat({
@@ -28,6 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Testimonials />
           <ContactCTA />
         </main>
+        <Footer />
       </body>
     </html>
   );
