@@ -5,6 +5,7 @@ import { Montserrat } from 'next/font/google';
 import Services from "@/components/Services";
 import Projects from "@/components/Projects";
 import Testimonials from "@/components/Testimonials";
+import ContactCTA from "@/components/ContactCTA";
 
 
 const montserrat = Montserrat({
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Services />
           <Projects />
           <Testimonials />
+          <ContactCTA />
         </main>
       </body>
     </html>
