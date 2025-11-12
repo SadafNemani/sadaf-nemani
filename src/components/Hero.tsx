@@ -306,7 +306,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="h-screen flex flex-col items-center justify-center text-center relative overflow-hidden">
+    <section className="min-h-[100svh] flex flex-col items-center justify-center text-center relative overflow-hidden">
       <div className="hero-bg absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(99,186,11,0.08),_transparent_70%)]" />
 
       <div
