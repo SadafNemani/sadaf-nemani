@@ -81,7 +81,7 @@ export default function Navbar() {
                     <button
                     aria-label="Toggle menu"
                     onClick={() => setOpen((v) => !v)}
-                    className="relative z-50 inline-flex items-center justify-center p-2 rounded-md ring-1 ring-white/6 backdrop-blur-md bg-neutral-50/30"
+                    className="relative z-50 inline-flex items-center justify-center p-2 rounded-md ring-1 ring-primary backdrop-blur-md bg-neutral-50/30"
                     >
                         <svg
                         className="w-6 h-6 text-neutral-10"
