@@ -13,18 +13,25 @@ export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
-        gsap.to(".navbar-bg", {
-            backdropFilter: "blur(8px)",
-            backgroundColor: "rgba(0, 0, 0, 0.7)",
-            filter: "brightness(1.1)",
-            ease: "power2.out",
-            scrollTrigger: {
-                trigger: "body",
-                start: "top top",
-                end: "bottom top",
-                scrub: true,
-            },
-        });
+    const navbar = document.querySelector(".navbar-bg");
+
+    ScrollTrigger.create({
+        start: "top top+=50", // when scrolling 50px down
+        onEnter: () => gsap.to(navbar, {
+        backdropFilter: "blur(8px)",
+        backgroundColor: "rgba(0,0,0,0.7)",
+        filter: "brightness(1.1)",
+        duration: 0.3,
+        ease: "power2.out",
+        }),
+        onLeaveBack: () => gsap.to(navbar, {
+        backdropFilter: "blur(0px)",
+        backgroundColor: "rgba(255,255,255,0.25)",
+        filter: "brightness(1)",
+        duration: 0.3,
+        ease: "power2.out",
+        }),
+    });
     }, []);
 
     return (
