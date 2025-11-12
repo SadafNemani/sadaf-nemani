@@ -117,7 +117,7 @@ export default function Navbar() {
                     aria-hidden={!open}
                     >
                         <div
-                        className={`absolute top-0 left-0 right-0 p-6 backdrop-blur-lg bg-neutral-55/75 border-b border-primary/30`}
+                        className={`absolute top-0 left-0 right-0 p-6 bg-neutral-55 border-b border-primary/30`}
                         >
                             <div className="flex items-center justify-between">
                                 <Link href="/" onClick={() => setOpen(false)}>
