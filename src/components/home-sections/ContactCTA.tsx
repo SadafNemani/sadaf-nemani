@@ -9,8 +9,6 @@ export default function ContactCTA() {
       id="contact-cta"
       className="relative py-40 text-center overflow-hidden bg-transparent"
     >
-      {/* Background Glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(99,186,11,0.08),_transparent_70%)]" />
 
       {/* Floating Particles */}
       <div className="absolute inset-0 overflow-hidden">

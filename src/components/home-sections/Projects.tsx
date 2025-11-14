@@ -62,8 +62,6 @@ export default function Projects() {
 
   return (
     <section ref={sectionRef} id="projects" className="relative py-28 overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(99,186,11,0.08),_transparent_70%)]" />
 
       <div className="max-w-6xl mx-auto px-6">
         {/* Section Header */}

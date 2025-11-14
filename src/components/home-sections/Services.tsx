@@ -87,7 +87,6 @@ export default function Services() {
       id="services"
       className="relative py-24 bg-transparent overflow-hidden"
     >
-      <div className="hero-bg absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(99,186,11,0.08),_transparent_70%)]" />
       <div className="max-w-6xl mx-auto px-6 text-center">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

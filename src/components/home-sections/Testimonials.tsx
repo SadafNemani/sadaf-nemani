@@ -63,7 +63,6 @@ export default function Testimonials() {
       id="testimonials"
       className="relative min-h-screen flex flex-col justify-center overflow-hidden py-20"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(99,186,11,0.08),_transparent_70%)]" />
 
       <div className="max-w-7xl mx-auto px-6">
         <motion.h2

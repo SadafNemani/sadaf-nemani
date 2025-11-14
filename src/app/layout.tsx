@@ -2,6 +2,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import { Montserrat } from 'next/font/google';
 import Footer from "@/components/footer/Footer";
+import GradientHalo from "@/components/layout/GradientHalo";
 
 
 const montserrat = Montserrat({
@@ -16,6 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={`${montserrat.variable} font-sans bg-neutral-55 text-neutral-10`}>
+        <GradientHalo />
         <Navbar />
         <main>
           {children}
