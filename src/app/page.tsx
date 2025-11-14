@@ -1,7 +1,17 @@
+import Hero from "@/components/hero/Hero";
+import Services from "@/components/home-sections/Services";
+import Projects from "@/components/home-sections/Projects";
+import Testimonials from "@/components/home-sections/Testimonials";
+import ContactCTA from "@/components/home-sections/ContactCTA";
+
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black text-white flex items-center justify-center">
-      <h1 className="text-3xl font-bold text-green-500">Hello Sadaf 👋</h1>
-    </main>
+    <>
+      <Hero />
+      <Services />
+      <Projects />
+      <Testimonials />
+      <ContactCTA />
+    </>
   );
 }
