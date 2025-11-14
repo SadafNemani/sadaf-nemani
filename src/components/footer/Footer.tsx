@@ -5,9 +5,9 @@ import Link from "next/link";
 
 export default function Footer() {
     return (
-        <footer className="relative py-10 border-t border-white/10 bg-transparent text-center text-neutral-400">
+        <footer className="relative py-10 border-t border-white/10 backdrop-blur-lg bg-neutral-60/40 text-center text-neutral-400">
             <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 20 }} 
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="relative z-10 max-w-5xl mx-auto flex flex-col items-center gap-3"
