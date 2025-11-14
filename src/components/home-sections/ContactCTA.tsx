@@ -1,51 +1,23 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
 export default function ContactCTA() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null; // render nothing on server
+
   return (
     <section
       id="contact-cta"
       className="relative py-40 text-center overflow-hidden bg-transparent"
     >
-
-      {/* Floating Particles */}
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(100)].map((_, i) => {
-          const size = 3 + Math.random() * 4; // 3–7px
-          const duration = 8 + Math.random() * 6;
-          const delay = Math.random() * 5;
-          const xStart = Math.random() * 100;
-          const yStart = Math.random() * 100;
-
-          return (
-            <motion.span
-              key={i}
-              className="absolute rounded-full bg-primary/50 blur-[2px] shadow-[0_0_12px_rgba(99,186,11,0.5)]"
-              style={{
-                width: `${size}px`,
-                height: `${size}px`,
-                left: `${xStart}%`,
-                top: `${yStart}%`,
-              }}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{
-                y: [-50, -500],
-                opacity: [0, 0.8, 0],
-              }}
-              transition={{
-                duration,
-                repeat: Infinity,
-                delay,
-                ease: "easeInOut",
-              }}
-            />
-          );
-        })}
-      </div>
-
-      {/* Content */}
       <div className="max-w-3xl mx-auto px-6 relative z-10">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
@@ -79,7 +51,6 @@ export default function ContactCTA() {
         </motion.div>
       </div>
 
-      {/* Button Glow Animation */}
       <style jsx>{`
         @keyframes pulseGlow {
           0%, 100% {
