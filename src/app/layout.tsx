@@ -4,6 +4,7 @@ import { Montserrat } from 'next/font/google';
 import Footer from "@/components/footer/Footer";
 import GradientHalo from "@/components/layout/GradientHalo";
 import ParticleDrift from "@/components/layout/ParticleDrift";
+import CursorAura from "@/components/layout/CursorAura";
 
 
 const montserrat = Montserrat({
@@ -18,6 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={`${montserrat.variable} font-sans bg-neutral-55 text-neutral-10`}>
+        <CursorAura />
         <GradientHalo />
         <ParticleDrift />
         <Navbar />
