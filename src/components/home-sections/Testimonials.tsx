@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { Quote } from "lucide-react";
+import ScrollFloat from "../layout/ScrollFloat";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -65,14 +66,17 @@ export default function Testimonials() {
     >
 
       <div className="max-w-7xl mx-auto px-6">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-5xl md:text-6xl font-bold text-center text-neutral-10 mb-6"
+        <ScrollFloat
+          animationDuration={1}
+          ease='back.inOut(2)'
+          scrollStart='center bottom+=50%'
+          scrollEnd='bottom bottom-=40%'
+          stagger={0.03}
+          containerClassName='text-5xl md:text-6xl font-bold text-center mb-4'
+          textClassName="text-neutral-10"
         >
           Voices Behind the Work
-        </motion.h2>
+        </ScrollFloat>
         <p className="text-neutral-400 text-lg text-center mb-16">
           Real experiences from real projects.
         </p>

@@ -5,8 +5,7 @@ import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import Image from "next/image";
-import { SiNextdotjs, SiTypescript, SiTailwindcss, SiFramer } from "react-icons/si";
-import { FaReact } from "react-icons/fa";
+import ScrollFloat from "../layout/ScrollFloat";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -65,14 +64,17 @@ export default function Projects() {
 
       <div className="max-w-6xl mx-auto px-6">
         {/* Section Header */}
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-5xl md:text-6xl font-bold text-neutral-10 text-center mb-4"
+        <ScrollFloat
+          animationDuration={1}
+          ease='back.inOut(2)'
+          scrollStart='center bottom+=50%'
+          scrollEnd='bottom bottom-=40%'
+          stagger={0.03}
+          containerClassName='text-5xl md:text-6xl font-bold text-center mb-4'
+          textClassName="text-neutral-10"
         >
           Featured Works
-        </motion.h2>
+        </ScrollFloat>
         <p className="text-neutral-400 text-lg text-center mb-20">
           A glimpse into the stories I’ve built — blending design, code, and motion.
         </p>

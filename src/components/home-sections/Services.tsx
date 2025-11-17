@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { PenTool, Code, Sparkles, Gauge } from "lucide-react";
@@ -23,6 +22,7 @@ import {
   SiFramer,
   SiMysql,
 } from "react-icons/si";
+import ScrollFloat from "../layout/ScrollFloat";
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -88,14 +88,17 @@ export default function Services() {
       className="relative py-24 bg-transparent overflow-hidden"
     >
       <div className="max-w-6xl mx-auto px-6 text-center">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-5xl md:text-6xl font-bold text-neutral-10 mb-4"
+        <ScrollFloat
+          animationDuration={1}
+          ease='back.inOut(2)'
+          scrollStart='center bottom+=50%'
+          scrollEnd='bottom bottom-=40%'
+          stagger={0.03}
+          containerClassName='text-5xl md:text-6xl font-bold text-center mb-4'
+          textClassName="text-neutral-10"
         >
           What I do
-        </motion.h2>
+        </ScrollFloat>
         <p className="text-neutral-400 text-lg mb-16">
           A blend of creativity, code, and performance — turning imagination into interactive reality.
         </p>
