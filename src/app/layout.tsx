@@ -5,6 +5,7 @@ import Footer from "@/components/footer/Footer";
 import GradientHalo from "@/components/layout/GradientHalo";
 import ParticleDrift from "@/components/layout/ParticleDrift";
 import CursorAura from "@/components/layout/CursorAura";
+import Galaxy from "@/components/layout/Galaxy";
 
 
 const montserrat = Montserrat({
@@ -18,10 +19,13 @@ export const metadata = { title: "Sadaf Nemani" };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${montserrat.variable} font-sans bg-neutral-55 text-neutral-10`}>
+      <body className={`${montserrat.variable} font-sans bg-neutral-55 text-neutral-10 min-h-screen`}>
         <CursorAura />
         <GradientHalo />
-        <ParticleDrift />
+        <Galaxy
+          mouseRepulsion={true}
+          mouseInteraction={true}
+        />
         <Navbar />
         <main>
           {children}
